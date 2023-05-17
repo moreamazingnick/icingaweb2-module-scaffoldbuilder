@@ -1,0 +1,48 @@
+<?php if (! $this->compact): ?>
+<div class="controls">
+    <?= $this->tabs ?>
+</div>
+<?php endif ?>
+<div class="content">
+    <div class="actions">
+        <?= $this->qlink(
+            $this->translate('Create a New __Configname__') ,
+            '__modulename__/__configname__/new',
+            null,
+            [
+                'class'             => 'button-link',
+                'data-base-target'  => '_next',
+                'icon'              => 'plus',
+                'title'             => $this->translate('Create a new __Configname__')
+            ]
+        ) ?>
+    </div>
+    <?php /** @var \Icinga\Repository\RepositoryQuery $configs */ if (! $configs->hasResult()): ?>
+        <p><?= $this->escape($this->translate('No __Configname__ configured yet.')) ?></p>
+    <?php else: ?>
+    <div class="grid">
+    <?php foreach ($configs as $config): ?>
+        <div class="grid-item">
+            <h2 class="grid-item-header"><?= $this->escape($config->name) ?></h2>
+            <dl>
+                <dt><?= $this->translate('Name') ?></dt>
+                <dd><?= $this->escape($config->name) ?></dd>
+            </dl>
+            <?= $this->qlink(
+                $this->translate('Update __Configname__') ,
+                '__modulename__/__configname__/update',
+                [
+                    'id'  => $config->name
+                ],
+                [
+                    'class'             => 'button-link',
+                    'data-base-target'  => '_next',
+                    'icon'              => 'plus',
+                    'title'             => $this->translate('Update __Configname__')
+                ]
+            ) ?>
+        </div>
+    <?php endforeach ?>
+    </div>
+    <?php endif ?>
+</div>
