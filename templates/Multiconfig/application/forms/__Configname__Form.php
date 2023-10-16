@@ -6,7 +6,6 @@
 namespace Icinga\Module\__Modulename__\Forms;
 
 use Icinga\Data\Filter\Filter;
-use Icinga\Exception\NotFoundError;
 use Icinga\Forms\RepositoryForm;
 use Icinga\Module\__Modulename__\__Configname__IniRepository;
 
@@ -176,7 +175,7 @@ class __Configname__Form extends RepositoryForm
 
     protected function createFilter()
     {
-        return Filter::where('name', $this->getIdentifier());
+        return Filter::where($this->repository->getIdentifierName(), $this->getIdentifier());
     }
 
     protected function getInsertMessage($success)

@@ -27,7 +27,7 @@ class ModuleconfigController extends Controller
 
 
         $this->settings_sometext = Config::module('__modulename__', "config")->get('settings', 'sometext') != null ?
-            trim(Config::module('__modulename__', "config")->get('settings', 'settings_sometext'), "") : null;
+            trim(Config::module('__modulename__', "config")->get('settings', 'sometext'), "") : null;
 
         $this->settings_somepassword = Config::module('__modulename__', "config")->get('settings', 'somepassword') != null ?
             trim(Config::module('__modulename__', "config")->get('settings', 'somepassword'), "") : null;

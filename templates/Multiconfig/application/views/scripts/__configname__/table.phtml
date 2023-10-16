@@ -1,3 +1,7 @@
+<?php
+    use Icinga\Module\__Modulename__\__Configname__IniRepository;
+    $identifier = (new __Configname__IniRepository())->getIdentifierName();
+?>
 <div class="controls">
     <?= /** @var \Icinga\Web\Widget\Tabs $tabs */ $tabs ?>
 </div>
@@ -27,11 +31,11 @@
         <tbody>
         <?php foreach ($configs as $config): ?>
             <tr>
-                <td><?= $this->qlink($config->name, '__modulename__/__configname__/update', ['id' => $config->name]) ?></td>
+                <td><?= $this->qlink($config->{$identifier}, '__modulename__/__configname__/update', ['id' => $config->{$identifier}]) ?></td>
                 <td class="icon-col"><?= $this->qlink(
                         null,
                         '__modulename__/__configname__/delete',
-                        array('id' => $config->name),
+                        array('id' => $config->{$identifier}),
                         array(
                             'class' => 'action-link',
                             'icon'  => 'cancel',

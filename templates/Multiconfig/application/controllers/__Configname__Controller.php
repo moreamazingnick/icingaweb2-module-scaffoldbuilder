@@ -35,7 +35,7 @@ class __Configname__Controller extends Controller
     public function indexAction()
     {
         $this->setTitle($this->translate('__ConfignamePL__'));
-        $this->view->configs = (new __Configname__IniRepository())->select(['name']);
+        $this->view->configs = (new __Configname__IniRepository())->select();
 
         $this->_helper->viewRenderer->setRender('__configname__/__configview__', null, true);
     }

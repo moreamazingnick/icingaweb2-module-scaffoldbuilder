@@ -22,7 +22,7 @@ class BuildCommand extends Command
      * OPTIONS:
      *
      *   --name         The name of the new icingaweb-module
-     *   --configs      The name of the IniRepository Configs comma seperated (jobs, tests)
+     *   --configs      The name of the IniRepository Configs comma seperated (jobs, tests) or (jobs:table, tests:grid)
      *
      *   --themename    The theme name inside the module, leave blank if you don't need that
      *
@@ -30,24 +30,27 @@ class BuildCommand extends Command
      */
     public function defaultAction()
     {
-
-        $name = $this->params->getRequired('name');
-        $configs = $this->params->getRequired('configs');
-        $configs = explode(",",str_replace(" ","",$configs));
-
         $prepConfigs=[];
 
-        foreach ($configs as $config){
+        $name = $this->params->getRequired('name');
+        $configsParam = $this->params->get('configs');
+        if(isset($configsParam) && $configsParam != "" && $configsParam != "1"){
+            echo "$configsParam";
+            $configs = explode(",",str_replace(" ","",$configsParam));
+            foreach ($configs as $config){
 
-            $tmp =explode(":",$config);
-            if(isset($tmp[1]) && $tmp[1] === "table"){
-                $prepConfigs[$tmp[0]]= "table";
-            }else{
-                $prepConfigs[$tmp[0]]= "grid";
+                $tmp =explode(":",$config);
+                if(isset($tmp[1]) && $tmp[1] === "table"){
+                    $prepConfigs[$tmp[0]]= "table";
+                }else{
+                    $prepConfigs[$tmp[0]]= "grid";
+                }
             }
         }
-        $moduleName = strtolower($name);
 
+
+
+        $moduleName = strtolower($name);
         $libraryName = ucfirst($name);
         $themename = $this->params->get('theme');
         $icingaModulePath = "/usr/share/icingaweb2/modules";
@@ -100,7 +103,10 @@ class BuildCommand extends Command
 
 
         foreach ($prepConfigs as $configname=>$kind){
-            $this->extracted($templatePath, "Multiconfig", $modulePath, $moduleName, $configname, $kind, "");
+            if($configname != ""){
+                echo "Config Name will be $configname, view will be $kind\n";
+                $this->extracted($templatePath, "Multiconfig", $modulePath, $moduleName, $configname, $kind, "");
+            }
         }
 
     }

@@ -48,4 +48,8 @@ class __Configname__IniRepository extends IniRepository
         $this->protectedFields=$array;
 
     }
+
+    public function getIdentifierName(){
+        return $this->configs['__configname__']['keyColumn'];
+    }
 }

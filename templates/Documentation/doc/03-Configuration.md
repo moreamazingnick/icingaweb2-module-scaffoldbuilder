@@ -1,6 +1,6 @@
 # Configuration <a id="module-__modulename__-configuration"></a>
 
-## Module Configuration  <a id="module-__modulename__-configuration-ve"></a>
+## Module Configuration  <a id="module-__modulename__-configuration-module"></a>
 
 ![image_a](img/image_a.png)
 
