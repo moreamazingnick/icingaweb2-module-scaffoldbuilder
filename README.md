@@ -10,7 +10,7 @@ This module is based on:
 
 ## Usage
 ```sh
-icingacli scaffoldbuilder build --name YOURMODULENAME --configs "NAME1:table,NAME2:grid"
+sudo icingacli scaffoldbuilder build --name YOURMODULENAME --configs "NAME1:table,NAME2:grid"
 ```
 
 ## Contributing
