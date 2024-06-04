@@ -31,7 +31,7 @@ class DbMigration extends DbMigrationHook
     {
         return [
 
-            '0.5.1' => $this->translate(
+            '0.1.0' => $this->translate(
                 'Some useful description of this migration'
             ),
 
@@ -82,7 +82,7 @@ class DbMigration extends DbMigrationHook
 
                 if (! $this->version) {
                     // Schema version table exist, but the user has probably deleted the entry!
-                    $this->version = '0.5.6';
+                    $this->version = '0.0.0';
                 }
 
             } else {
