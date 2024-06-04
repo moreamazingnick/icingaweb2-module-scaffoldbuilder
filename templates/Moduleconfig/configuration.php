@@ -6,6 +6,6 @@ $this->provideConfigTab('config/moduleconfig', array(
     'url' => 'moduleconfig'
 ));
 
-$this->providePermission('__modulename__/config/moduleconfig', $this->translate('allow access to __modulename__ configuration'));
+$this->providePermission('config/__modulename__', $this->translate('allow access to __modulename__ configuration'));
 
 ?>

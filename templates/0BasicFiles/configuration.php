@@ -9,7 +9,5 @@ $section = $this->menuSection(N_('__Modulename__'), [
     'priority' => 910
 ]);
 
-$this->providePermission('__modulename__', $this->translate('allow access to __modulename__'));
-
 
 ?>

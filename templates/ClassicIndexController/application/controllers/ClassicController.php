@@ -12,7 +12,7 @@ class ClassicController extends Controller
 {
     public function indexAction()
     {
-        $this->tabs = $this->getTabs()
+        $this->view->tabs = $this->getTabs()
             ->add('__Modulename__ Classic', [
                 'label' => $this->translate('__Modulename__ Classic'),
                 'url'   => '__modulename__/classic'

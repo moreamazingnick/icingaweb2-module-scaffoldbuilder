@@ -1,6 +1,6 @@
 # Usage <a id="module-__modulename__-usage"></a>
 
-## Module Usage  <a id="module-__modulename__-usage-director"></a>
+## Module Usage  <a id="module-__modulename__-usage"></a>
 
 ![image_e](img/image_e.png)
 

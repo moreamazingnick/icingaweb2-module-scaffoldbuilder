@@ -23,7 +23,7 @@ class ModuleconfigController extends Controller
 
     public function init()
     {
-        $this->assertPermission('config/modules');
+        $this->assertPermission('config/__modulename__');
 
 
         $this->settings_sometext = Config::module('__modulename__', "config")->get('settings', 'sometext') != null ?
@@ -44,9 +44,6 @@ class ModuleconfigController extends Controller
 
     public function indexAction()
     {
-        $this->assertPermission('__modulename__/config');
-
-
         $form = (new ModuleconfigForm())
             ->setIniConfig(Config::module('__modulename__', "config"));
 

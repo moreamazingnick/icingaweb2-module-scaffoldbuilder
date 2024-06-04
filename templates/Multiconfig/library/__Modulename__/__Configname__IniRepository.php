@@ -25,6 +25,7 @@ class __Configname__IniRepository extends IniRepository
             'nameofcheckbox',
         ]
     ];
+    protected $protectedFields = array();
     protected $triggers = array('__configname__');
     /**
      * Reset every protected field to its old value if updated to ""

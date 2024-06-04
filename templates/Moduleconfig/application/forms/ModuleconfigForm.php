@@ -69,7 +69,7 @@ class ModuleconfigForm extends ConfigForm
     {
         parent::onRequest();
         foreach ($this->getElements() as $element) {
-            if ($element->getType() === 'Zend_Form_Element_Password' && strlen($element->getValue())) {
+            if ($element->getType() === 'Zend_Form_Element_Password' && $element->getValue() != null && strlen($element->getValue()) > 0) {
                 $element->setValue(static::$dummyPassword);
             }
         }

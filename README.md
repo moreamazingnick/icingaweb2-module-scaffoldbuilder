@@ -1,6 +1,6 @@
 # About the scaffoldbuilder Module <a id="scaffoldbuilder-module-about"></a>
 
-This module provides the ability to generate modules with for IcingaWeb2
+This module provides the ability to generate modules for IcingaWeb2
 
 ## Source
 
