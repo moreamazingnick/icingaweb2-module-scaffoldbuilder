@@ -81,7 +81,7 @@ systemctl restart icinga2
 apt install icinga2-ido-mysql
 
 
-apt -y install icingaweb2 libapache2-mod-php icingacli icingadb-web
+apt -y install icingaweb2 libapache2-mod-php icingacli icingadb-web php-sqlite3
 mysql -e "CREATE DATABASE icingaweb2;
   CREATE USER 'icingaweb2'@'localhost' IDENTIFIED BY 'securePW123!';
   GRANT ALL ON icingaweb2.* TO 'icingaweb2'@'localhost';"
