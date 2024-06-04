@@ -193,6 +193,20 @@ icingacli director basket restore --json < /tmp/basket.json
 icingacli director host create ubuntu  --object_type object --import generic-host --json '{ "address":"127.0.0.1", "imports":"generic-host", "vars.os": "Linux" }'
 
 ```
+## Download the latest IcingaWeb2 files
+
+* Go to https://github.com/Icinga/icingaweb2/releases/ and download the latest version of IcingaWeb2 or the version 
+you prefer to write a module for.
+* Go to https://github.com/Icinga/icinga-php-library/releases/ and download the latest version of icinga-php-library
+or the version that is compatible with your IcingaWeb2 version
+* Go to https://github.com/Icinga/icinga-php-thirdparty/releases and download the latest version of icinga-php-thirdparty
+  or the version that is compatible with your IcingaWeb2 version
+
+
+* Unpack IcingaWeb2 this will be used as project folder.
+* create a folder inside your IcingaWeb2 folder named libs or anything you find appropriate
+* Unpack icinga-php-library and icinga-php-thirdparty to this directory so PhpStorm will recognize it.
+
 
 
 ## IDE <a id="module-scaffoldbuilder-installation-requirements"></a>
