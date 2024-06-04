@@ -7,11 +7,14 @@ This module provides the ability to generate modules for IcingaWeb2
 This module is based on:
 * Icinga Web 2 Elasticsearch Module
 * Icinga Web 2 Reporting Module
+* Icinga Web 2 X509 Module
 
 ## Usage
 ```sh
-sudo icingacli scaffoldbuilder build --name YOURMODULENAME --configs "NAME1:table,NAME2:grid"
+sudo icingacli scaffoldbuilder build --name YOURMODULENAME --iniconfigs "NAME1:table,NAME2:grid"
 ```
+For more examples click here:
+* [Usage](doc/04-Usage.md#module-scaffoldbuilder-usage)
 
 ## Contributing
 
