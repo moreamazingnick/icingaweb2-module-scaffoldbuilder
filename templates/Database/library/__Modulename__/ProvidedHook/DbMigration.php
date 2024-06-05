@@ -64,6 +64,9 @@ class DbMigration extends DbMigrationHook
     {
         if ($this->version === null) {
             $conn = $this->getDb();
+            if($conn->getAdapter() instanceof Sqlite){
+                return "99.9.9";
+            }
             $schema = $this->getSchemaQuery()
                 ->columns(['version', 'success'])
                 ->orderBy('id', SORT_DESC)

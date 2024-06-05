@@ -135,7 +135,7 @@ class BuildCommand extends Command
             }
         }
         if(count($prepSqlConfigs)>0){
-            $this->extracted($templatePath, "Database", $modulePath, $moduleName, "", "", "");
+            $this->extracted($templatePath, "Database", $modulePath, $moduleName, "", "", "", "","",$tableprefix);
         }
         if($withSqliteHelpers){
             $this->extracted($templatePath, "SqliteDatabase", $modulePath, $moduleName, "", "", "");
