@@ -37,11 +37,17 @@ sudo icingacli scaffoldbuilder build --name yourmodulename --iniconfigs "user:ta
 ### Generating a Sql-Database   <a id="module-scaffoldbuilder-usage-generate-sql"></a>
 
 For Sql-Databases scaffoldbuilder can render the Model/View/Controller files for you.
-This example generated code for users and groups. Users are written to the table `tbl_user` and 
-groups are written to the table `tbl_group`. Since User is a MySQL keyword you should always use a table prefix.
+This example generated code for users and groups. Users are written to the table `yourmodulename_user` and 
+groups are written to the table `yourmodulename_group`. Since User is a MySQL keyword you should always use a table prefix.
 
 ```shell
-sudo icingacli scaffoldbuilder build --name yourmodulename --dbconfigs "user:tbl_user, group:tbl_group"
+sudo icingacli scaffoldbuilder build --name yourmodulename --dbconfigs "user:user, group:group"
+```
+
+If you prefer a different table prefix you can specify this with `--tableprefix` but by default it is the modulename.
+
+```shell
+sudo icingacli scaffoldbuilder build --name yourmodulename --dbconfigs "user:user, group:group" --tableprefix "tbl_"
 ```
 
 ### Generating a SqLite-Helper   <a id="module-scaffoldbuilder-usage-generate-sqlite"></a>
