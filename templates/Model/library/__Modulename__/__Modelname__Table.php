@@ -22,7 +22,7 @@ class __Modelname__Table extends DataTable
 
     public function createColumns()
     {
-        $column = [];
+        $columns = [];
         foreach ((new __Modelname__())->getColumnDefinitions() as $column=>$options){
 
             if(is_array($options)) {
@@ -37,7 +37,7 @@ class __Modelname__Table extends DataTable
                     $columns[$column."_text"] = [
                         'label'  => $options['label']??$column,
                         'column' => function ($data) use ($column) {
-                            return $data->{$column}?("Yes"):t("No");
+                            return $data->{$column}?t("Yes"):t("No");
                         }
                     ];
                 }elseif ($fieldtype === "localDateTime" ){

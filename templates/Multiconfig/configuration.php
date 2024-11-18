@@ -8,8 +8,8 @@ $section->add(N_('__Configname__'))
     ->setPriority(30);
 
 $this->provideConfigTab('config/__configname__', array(
-    'title' => $this->translate('Configuration'),
-    'label' => $this->translate('Configuration'),
+    'title' => $this->translate('__Configname__'),
+    'label' => $this->translate('__Configname__'),
     'url' => '__configname__'
 ));
 

@@ -30,6 +30,8 @@ apt update
 apt -y install apt-transport-https wget gnupg icinga2 vim monitoring-plugins icingadb icingadb-redis mariadb-server git
 
 
+# make sure the hostname is ok before running icinga2 node wizard !
+#hostnamectl set-hostname ubuntu2204.icinga.local
 
 
 mysql_secure_installation
@@ -39,7 +41,6 @@ mysql_secure_installation
 #Remove test database and access to it? [Y/n] Y
 #Reload privilege tables now? [Y/n] Y
 
-# make sure the hostname is ok before running icinga2 node wizard !
 
 
 icinga2 node wizard
@@ -185,6 +186,7 @@ mysql -e "CREATE DATABASE director CHARACTER SET 'utf8';
   CREATE USER director@localhost IDENTIFIED BY 'securePW123!';
   GRANT ALL ON director.* TO director@localhost;"
   
+# go back to the webinterface and set up icinga director
   
 echo '{ "HostTemplate": { "generic-host": { "check_command": "hostalive", "fields": [ { "datafield_id": 1, "is_required": "n", "var_filter": null } ], "object_name": "generic-host", "object_type": "template", "uuid": "8be076ec-e290-4a42-9539-55493b4be385" } }, "ServiceTemplate": { "generic-service": { "check_command": "dummy", "enable_active_checks": true, "enable_passive_checks": true, "enable_perfdata": true, "object_name": "generic-service", "object_type": "template", "uuid": "e053518d-a473-48fe-8105-f84a09c6e62e" } }, "ServiceSet": { "linux-basic": { "assign_filter": "host.vars.os=%22Linux%22", "object_name": "linux-basic", "object_type": "template", "services": [ { "check_command": "icinga", "imports": [ "generic-service" ], "object_name": "icinga2", "object_type": "object", "uuid": "e67480b7-f458-4490-a24c-e4977c167e87" }, { "check_command": "load", "imports": [ "generic-service" ], "object_name": "load", "object_type": "object", "uuid": "55f87741-4eab-47d0-aeed-27eed8e46950" }, { "check_command": "ping4", "imports": [ "generic-service" ], "object_name": "ping4", "object_type": "object", "uuid": "1145ca49-e522-4d44-af42-0f9e3cb436b9" }, { "check_command": "procs", "imports": [ "generic-service" ], "object_name": "procs", "object_type": "object", "uuid": "89f3e75e-759f-4f0b-841b-1d91f5eb6aab" }, { "check_command": "ssh", "imports": [ "generic-service" ], "object_name": "ssh", "object_type": "object", "uuid": "70e1c362-0c4f-460f-8f06-9e2f6ad65e00" }, { "check_command": "swap", "imports": [ "generic-service" ], "object_name": "swap", "object_type": "object", "uuid": "71a3fec2-1d9c-4346-9ce4-34f2d27b8b92" }, { "check_command": "users", "imports": [ "generic-service" ], "object_name": "users", "object_type": "object", "uuid": "dc11c4a2-1dd9-4e46-81a2-e734de13f935" } ], "uuid": "ba9e8af7-b4ec-42e6-ae78-1e1f2406d395" } }, "Datafield": { "1": { "uuid": "7f17a34e-5dad-4ec0-972f-4306ce5200ea", "varname": "os", "caption": "OS", "description": null, "datatype": "Icinga\\Module\\Director\\DataType\\DataTypeString", "format": null, "settings": { "visibility": "visible" }, "category": null } } }' > /tmp/basket.json
  

@@ -47,7 +47,7 @@ class __Modelname__Restrictor{
                 $roleFilter = Filter::all();
 
 
-                if (($restriction = $role->getRestrictions('__modulename__/filter/__modelnamePl__'))) {
+                if (($restriction = $role->getRestrictions('__modulename__/filter/__modelnamePL__'))) {
                     $roleFilter->add($this->parseRestriction($restriction, '__modulename__/filter/__modelnamePL__'));
                 }
 

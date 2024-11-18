@@ -14,7 +14,10 @@ abstract class DbModel extends Model
 {
 
     public function beforeSave(Connection $db){
-
+        $this->prepareForDatabase();
+    }
+    public function afterSave(Connection $db){
+        $this->prepareForUsage();
     }
 
     public function getColumns(): array
@@ -46,7 +49,19 @@ abstract class DbModel extends Model
 
         }
     }
+    public function prepareForUsage()
+    {
+        $behavior = new Behaviors();
+        $this->createBehaviors($behavior);
+        $behavior->retrieve($this);
+    }
 
+    public function prepareForDatabase()
+    {
+        $behavior = new Behaviors();
+        $this->createBehaviors($behavior);
+        $behavior->persist($this);
+    }
     public function save($asTransaction = true)
     {
 
@@ -57,9 +72,6 @@ abstract class DbModel extends Model
         }
 
         $this->beforeSave($db);
-        $behavior = new Behaviors();
-        $this->createBehaviors($behavior);
-        $behavior->persist($this);
 
         $values=$this->getValues();
 
@@ -73,6 +85,7 @@ abstract class DbModel extends Model
         if($asTransaction){
             $db->commitTransaction();
         }
+        $this->afterSave($db);
     }
 
     public function findbyPrimaryKey($id){

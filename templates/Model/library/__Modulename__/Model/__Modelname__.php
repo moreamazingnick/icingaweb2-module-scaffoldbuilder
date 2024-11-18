@@ -40,7 +40,7 @@ class __Modelname__ extends DbModel
                 'description'=>t('Enable or disable something'),
             ],
             'ctime'=>[
-                'fieldtype'=>t('localDateTime'),
+                'fieldtype'=>'localDateTime',
                 'label'=>t('Created At'),
                 'description'=>t('A Creation Time'),
             ]
