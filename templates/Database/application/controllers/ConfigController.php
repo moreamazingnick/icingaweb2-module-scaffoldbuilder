@@ -7,7 +7,7 @@ namespace Icinga\Module\__Modulename__\Controllers;
 
 use HttpException;
 use Icinga\Application\Config;
-use Icinga\Module\Statuspage\Forms\BackendConfigForm;
+use Icinga\Module\__Modulename__\Forms\BackendConfigForm;
 use ipl\Web\Compat\CompatController;
 
 
