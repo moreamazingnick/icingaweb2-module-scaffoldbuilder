@@ -24,7 +24,8 @@ class BackendConfigForm extends ConfigForm
             'label'         => $this->translate('Database'),
             'description'   => $this->translate('Database resource'),
             'multiOptions'  => array_combine($dbResources, $dbResources),
-            'required'      => true
+            'required'      => true,
+            'value'=>'__modulename__'
         ]);
     }
 }
