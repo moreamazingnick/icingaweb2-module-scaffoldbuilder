@@ -30,7 +30,7 @@ class FileUploadForm extends Form
             'destination' => $this->getTempDir(),
             'required'    => true,
 
-        ))->ad;
+        ));
 
         /** @var \Zend_Form_Element_File $el */
         $el = $this->getElement('uploaded_file');

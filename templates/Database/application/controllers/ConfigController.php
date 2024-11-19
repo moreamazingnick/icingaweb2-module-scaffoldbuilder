@@ -7,16 +7,9 @@ namespace Icinga\Module\__Modulename__\Controllers;
 
 use HttpException;
 use Icinga\Application\Config;
-use Icinga\Module\Statuspage\Common\Database;
-use Icinga\Module\Statuspage\FileHelper;
 use Icinga\Module\Statuspage\Forms\BackendConfigForm;
-use Icinga\Module\Statuspage\SqliteFileHelper;
-use Icinga\Module\Statuspage\SqliteFilesTable;
-use Icinga\Web\Notification;
-use ipl\Html\Html;
 use ipl\Web\Compat\CompatController;
-use ipl\Web\Widget\ButtonLink;
-use SQLite3;
+
 
 class ConfigController extends CompatController
 {
